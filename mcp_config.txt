@@ -1,0 +1,104 @@
+Mayar MCP Server
+Powerful Model Context Protocol server for seamless payment processing, customer management, and transaction handling integration.
+
+What is MCP?
+The Model Context Protocol (MCP) is an open standard that enables AI models to securely connect to external data sources and tools. It provides a unified way for AI applications to interact with various services, databases, and APIs while maintaining security and proper access controls.
+
+MCP servers act as bridges between AI models and external systems, allowing models to:
+
+Access real-time data from external services
+Execute functions and operations on behalf of users
+Maintain secure authentication and authorization
+Provide structured responses that models can understand
+The Mayar MCP Server specifically provides AI models with comprehensive access to payment processing, customer management, and transaction data through a secure, standardized interface.
+
+16
+Total Tools
+7
+Categories
+🖥️ MCP Client Integration
+To connect Mayar MCP Server to an MCP client application such as Claude Desktop, Cursor, or others, add the following configuration in Settings > Developer > Edit Config in your app. Replace your-api-key as needed.
+
+{
+  "mcpServers": {
+    "mayar": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.mayar.id/sse",
+        "--header",
+        "Authorization:${API_KEY}"
+      ],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+Connection Details
+Connection Type: SSE
+Server URL: https://mcp.mayar.id/sse
+Headers
+Authorization: [Mayar_API_Key]
+Environment Variables
+API_KEY
+Your Mayar API key for authentication
+🔑 Getting Your API Key
+You can obtain your Mayar API Key in Mayar Dashboard > Integration > Api Keys.
+
+💰 Account Management
+get_balance
+Retrieve your current Mayar account balance. Useful for monitoring cash flow and available balance.
+get_balance
+🧾 Invoice Management
+create_invoice
+Create a new invoice for a customer. Supports multiple payment methods and invoice detail customization.
+create_invoice
+👥 Customer Management
+send_portal_link
+Send a customer portal link for dashboard access and transaction history.
+send_portal_link
+get_customer_detail
+Retrieve detailed customer information by name and email, including contact data and membership status.
+get_customer_detail
+💳 Transaction Management
+get_latest_transactions
+Get the latest paid transactions. Ideal for real-time activity monitoring.
+get_latest_transactions
+get_latest_transactions_by_customer
+Get the latest transactions for a specific customer and product. Useful for customer service and support.
+get_latest_transactions_by_customer
+get_transactions_by_time_period
+Filter transactions by time period (day, week, month, year). Suitable for periodic reporting.
+get_transactions_by_time_period
+get_transactions_by_time_range
+Filter transactions within a specific date range. More flexible for custom analysis.
+get_transactions_by_time_range
+get_transactions_by_customer_and_time_range
+Combine customer and date range filters for in-depth per-customer analysis.
+get_transactions_by_customer_and_time_range
+get_transactions_by_customer_and_time_period
+Filter customer transactions within a certain period. Ideal for customer retention analysis.
+get_transactions_by_customer_and_time_period
+get_transactions_by_specific_product
+Analyze transactions per product for tracking performance and item popularity.
+get_transactions_by_specific_product
+🎯 Membership Management
+get_membership_customer_by_specific_product
+Get a list of members by specific membership product. Useful for targeted marketing.
+get_membership_customer_by_specific_product
+get_membership_customer_by_specific_product_and_tier
+Filter members by product and membership tier. Ideal for premium customer segmentation.
+get_membership_customer_by_specific_product_and_tier
+⚠️ Unpaid Transactions
+get_latest_unpaid_transactions
+Monitor unpaid invoices. Important for cash flow management and follow-up.
+get_latest_unpaid_transactions
+get_unpaid_transactions_by_time_range
+Filter unpaid transactions within a specific time range for debt collection strategy.
+get_unpaid_transactions_by_time_range
+🛍️ Product Management
+get_products
+Get list of products from Mayar.
+get_products
